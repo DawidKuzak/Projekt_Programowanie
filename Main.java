@@ -5,7 +5,7 @@ public class Main{
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Wybierz co chcesz zrobić:");
         System.out.println("1. Eksportować dane do XML");
-        System.out.println("2. Importować dane");
+        System.out.println("2. Importować dane z XML");
         System.out.println("3. Wpisać własną komendę");
         int choice = keyboard.nextInt();
 
