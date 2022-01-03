@@ -38,7 +38,7 @@ public class Main{
             case 4:
                 System.out.println("Dolny próg: ");
                 int min = scanner.nextInt();
-                System.out.println("Górny próg");
+                System.out.println("Górny próg: ");
                 int max = scanner.nextInt();
                 String execute = "Select employees.first_name, employees.last_name, salaries.salary FROM employees, salaries WHERE employees.emp_no = salaries.emp_no AND salaries.salary BETWEEN " + min + " AND " + max;
                 Connector con = new Connector();
