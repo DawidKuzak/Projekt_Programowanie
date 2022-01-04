@@ -21,7 +21,6 @@ public class Export {
                 }
                 myWriter.write("} \n");
             }
-            myWriter.write("}");
             myWriter.close();
             con.close();
             System.out.println("Wyeksportowano tabelę do MySQLDB.json");

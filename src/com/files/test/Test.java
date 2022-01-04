@@ -1,4 +1,7 @@
 package com.files;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.sql.*;
 import junit.framework.Assert;
 public class Test {
@@ -22,6 +25,47 @@ public class Test {
         }catch (Exception e) {
             System.out.println(e);
         }
+    }
+    @org.junit.Test
+    public void test_export(){
+        try{
+        String query = "Select * FROM employees LIMIT 3";
+        String perfect = "{ \n" +
+                "\"emp_no\": \"54322\"\n" +
+                "\"birth_date\": \"1949-07-02\"\n" +
+                "\"first_name\": \"Heather\"\n" +
+                "\"last_name\": \"Jordan\"\n" +
+                "\"hire_date\": \"1969-07-17\"\n" +
+                "} \n" +
+                "{ \n" +
+                "\"emp_no\": \"54323\"\n" +
+                "\"birth_date\": \"1949-09-02\"\n" +
+                "\"first_name\": \"Nathan\"\n" +
+                "\"last_name\": \"Urx\"\n" +
+                "\"hire_date\": \"1969-10-21\"\n" +
+                "} \n" +
+                "{ \n" +
+                "\"emp_no\": \"54324\"\n" +
+                "\"birth_date\": \"1949-09-11\"\n" +
+                "\"first_name\": \"Paul\"\n" +
+                "\"last_name\": \"Yewbeam\"\n" +
+                "\"hire_date\": \"1970-01-02\"\n" +
+                "} \n";
+        Export export = new Export();
+        export.MySqlToJson(query);
+        File file = new File(
+                "J:\\IdeaProjects\\Projekt_Programowanie\\MySQLDB.json");
+        BufferedReader br
+                = new BufferedReader(new FileReader(file));
+        String st;
+        String all ="";
+        while ((st = br.readLine()) != null){
+            all += st + "\n";
+        }
+        Assert.assertEquals(all, perfect);
+        } catch (Exception e) {
+        System.out.println(e);
+    }
 
     }
 }
